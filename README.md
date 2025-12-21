@@ -1,16 +1,37 @@
-# flutter_application_3
+#Food App (Flutter)
 
-A new Flutter project.
+A simple **Food Application** built using **Flutter**.  
+The app displays food items, their details, and provides a clean and user-friendly UI.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Project Description
 
-A few resources to get you started if this is your first Flutter project:
+This project is a small Flutter application for food ordering or food display purposes.  
+It is designed to practice Flutter concepts such as:
+- UI design
+- Navigation between screens
+- Working with widgets
+- Handling images and lists
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##  Features
+
+-  Modern and responsive UI
+-  Display food items with images
+-  Food details screen
+-  Simple food listing
+-  Fast performance using Flutter
+
+---
+
+##  Technologies Used
+
+- **Flutter**
+- **Dart**
+- **Material Design**
+
+---
+
+
