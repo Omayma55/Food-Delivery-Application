@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});//constructor
+  LoginPage({super.key});
 
-  final _formKey = GlobalKey<FormState>(); //علشان نتحقق من صحة الفورم
-  final TextEditingController emailController = TextEditingController();//بيعمل كنترولر الإيميل
-  final TextEditingController passwordController = TextEditingController();//بيعمل كنترول للكلمه السر
+  final _formKey = GlobalKey<FormState>(); 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -14,21 +14,21 @@ class LoginPage extends StatelessWidget {
         body: Stack(
           fit: StackFit.expand,
           children: [
-            // الخلفية
-            Container(//ده ال فيها الخلفيه 
+            
+            Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [Color(0xFFFFA726), Color(0xFFFF7043)],begin: Alignment.topCenter,end: Alignment.bottomCenter,),//علشان نعمل خلفيه متدرجه
+                gradient: LinearGradient(colors: [Color(0xFFFFA726), Color(0xFFFF7043)],begin: Alignment.topCenter,end: Alignment.bottomCenter,),
               ),
             ),
-            SingleChildScrollView(//بيخلينى اقدر اسحب الشاشه من فوق لتحت
+            SingleChildScrollView(
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 60),
-                  child: Form(key: _formKey, // علشان نقدر نتحقق من صحه البيانات
+                  child: Form(key: _formKey, 
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // كلمة Login
+                        
                         Text('Login',style: TextStyle(fontSize: 50,color: Colors.white,fontWeight: FontWeight.bold,letterSpacing: 2,fontFamily: "myfont",
                             shadows: const [
                               Shadow(blurRadius: 8, color: Colors.black87, offset: Offset(2, 2)),
@@ -36,26 +36,25 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 80),
-                        // Email
-                        Container( //ده الإطار
-                          decoration: BoxDecoration( //مسئول عن شكل الحقل
+                        
+                        Container( 
+                          decoration: BoxDecoration( 
                             color: Colors.deepOrange[100],borderRadius: BorderRadius.circular(66),),
                           width: 300,padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(//المستخدم هيكتب فيه الايميل
-                            controller: emailController, //علشان نقدر نقرأ ونتابع اللي المستخدم كتبه ونتاكد انه مش فاضى
+                          child: TextFormField(
+                            controller: emailController, 
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return "Email is required";
                               }
                               return null;
                             },
-                            decoration: InputDecoration( //علشان نعمل ستايل للحقل من جوا
+                            decoration: InputDecoration( 
                               icon: Icon(Icons.person, color: Colors.deepOrange[800]),hintText: "Your Email :",border: InputBorder.none,),
                           ),
                         ),
                         const SizedBox(height: 20),
-                        //نفس الكلام
-                        // Password
+                     
                         Container(
                           decoration: BoxDecoration(color: Colors.deepOrange[100],borderRadius: BorderRadius.circular(66),),
                           width: 300,
@@ -78,14 +77,14 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 30),
-                        // زرار تسجيل الدخول
+                        
                         ElevatedButton(
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) { // بيشغّل الـ validator بتاع كل TextFormField في الفورم. علشان يتاكد انه مش فاضى
+                            if (_formKey.currentState!.validate()) { 
                               Navigator.pushNamed(context, '/home');
                             }
                           },
-                          style: ElevatedButton.styleFrom(//دى طريقه تانيه علشان نعمل ستيل للزرار
+                          style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.deepOrange,padding: const EdgeInsets.symmetric(horizontal: 106, vertical: 12),shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(27),
                             ),),
                           child: const Text( "login", style: TextStyle(fontSize: 24, color: Colors.white),),
