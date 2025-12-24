@@ -12,11 +12,10 @@ class Afterorder extends StatelessWidget {
             'assets/images/712bc4ac83d15175aefcd862a1794a54.jpg',
             fit: BoxFit.cover,
           ),
-          // طبقة شفافة خفيفة فوق الصورة عشان الكلام يظهر واضح
           Container(color: Colors.black.withOpacity(0.3),),
           Column(
               children: [
-                const Spacer(flex: 4), // يزق الكلام لتحت
+                const Spacer(flex: 4), 
                 const Text(
                   "Your order is on the way!",
                   style: TextStyle(
@@ -29,16 +28,16 @@ class Afterorder extends StatelessWidget {
                 ),
                 ElevatedButton(
                           onPressed: () {
-                            { // بيشغّل الـ validator بتاع كل TextFormField في الفورم. علشان يتاكد انه مش فاضى
+                            { 
                               Navigator.pushNamed(context, '/home');
                             }
                           },
-                          style: ElevatedButton.styleFrom(//دى طريقه تانيه علشان نعمل ستيل للزرار
+                          style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.deepOrange,padding: const EdgeInsets.symmetric(horizontal: 106, vertical: 12),shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(27),
                             ),),
                           child: const Text( "Back to menu", style: TextStyle(fontSize: 24, color: Colors.white),),
                         ),
-                const Spacer(flex: 1), // مسافة تحت النص
+                const Spacer(flex: 1), 
               ],
             ),
           ],
