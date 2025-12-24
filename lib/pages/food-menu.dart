@@ -3,7 +3,7 @@ import 'package:flutter_application_1/pages/food-list.dart';
 import 'FoodDetail.dart';
 import 'cart_model.dart';
 class FoodMenuScreen extends StatelessWidget {
-  final List<FoodList> items; // بستدعى العناصر الموجوده في foodlist
+  final List<FoodList> items; 
   final String backgroundImage;
   const FoodMenuScreen({
     super.key,
@@ -15,7 +15,7 @@ class FoodMenuScreen extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        // الخلفية 
+      
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -30,33 +30,33 @@ class FoodMenuScreen extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(12),
-          child: GridView.count( //لعرض العناصر في شبكة
-            crossAxisCount: 2, // عمودين جنب بعض
-            mainAxisSpacing: 12, //لمسافة بين العناصر في الاتجاه العمودى
-            crossAxisSpacing: 12,//المسافة بين العناصر في الاتجاه العرضي.
-            childAspectRatio: 2, // النسبة بين الطول والعرض
-            children: items.map((item) { // تحويل قائمة الـ items إلى عناصر مرئية داخل الـ Grid.
+          child: GridView.count( 
+            crossAxisCount: 2, 
+            mainAxisSpacing: 12, 
+            crossAxisSpacing: 12,
+            childAspectRatio: 2, 
+            children: items.map((item) { 
               return GestureDetector(
-                onTap: () { //لما ادوس على الصور بتاعت الاكله يروح على الوصف
+                onTap: () { 
                   Navigator.push(context,MaterialPageRoute(
-                      builder: (context) => FoodDetailScreen(item: item), // عرض تفاصيل الطعام في الشاشة الجديدة
+                      builder: (context) => FoodDetailScreen(item: item), 
                     ),
                   );
                 },
-                child: Card( // استخدام الـ Card لإضفاء تأثير مادي مع حواف دائرية وارتفاع.
-                  shape: RoundedRectangleBorder( //شكل ال كارد 
+                child: Card( 
+                  shape: RoundedRectangleBorder(  
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  elevation: 4, //تحديد الظل
+                  elevation: 4, 
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch, // تمدد العناصر لتملأ المساحة عرضياً داخل الـكارد
+                    crossAxisAlignment: CrossAxisAlignment.stretch, 
                     children: [
-                      Expanded( // لتوسيع الصورة لتأخذ المساحة المتاحة داخل الـ Column
-                        child: ClipRRect( //قص الصورة إلى شكل مستدير من الأعلى
-                          borderRadius: const BorderRadius.vertical(top: Radius.circular(15)), // إضافة تقوس في الزوايا العلوية للصورة.
-                          child: AspectRatio(  //لضبط نسبة الأبعاد (العرض إلى الارتفاع) للصورة
-                            aspectRatio: 1, //لضبط نسبة الأبعاد (العرض إلى الارتفاع) للصورة
-                            child: Image.asset( //تحميل الصوره من yaml 
+                      Expanded( 
+                        child: ClipRRect( 
+                          borderRadius: const BorderRadius.vertical(top: Radius.circular(15)), 
+                          child: AspectRatio(  
+                            aspectRatio: 1, 
+                            child: Image.asset( 
                               item.image,
                               fit: BoxFit.cover,
                             ),
@@ -64,13 +64,13 @@ class FoodMenuScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8), //حديد المسافة حول العنصر
+                        padding: const EdgeInsets.all(8), 
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start, 
                           children: [
                             Text(item.name,
                               style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16,),
-                              overflow: TextOverflow.ellipsis, // إذا كان النص أطول من المساحة المتاحة، يتم إضافة ثلاث نقاط "..." في النهاية
+                              overflow: TextOverflow.ellipsis, 
                             ),
                             const SizedBox(height: 4),
                             Text(item.price,
@@ -83,22 +83,22 @@ class FoodMenuScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         child: ElevatedButton(
                           onPressed: () {
-                            // إضافة العنصر إلى العربة
+                         
                             CartModel.addItem({
                               'name': item.name,
-                              'price': double.parse(item.price.replaceAll('EGP', '').trim()), // تحويل السعر إلى رقم
-                              'quantity': 1, // افترض أن الكمية هي 1 عند إضافة العنصر
+                              'price': double.parse(item.price.replaceAll('EGP', '').trim()), 
+                              'quantity': 1, 
                               'image': item.image,
-                              'size': 'Medium', // افترض حجمًا معينًا 
+                              'size': 'Medium', 
                             });
-                            ScaffoldMessenger.of(context).showSnackBar( //الرساله البتظهر لما اطلب من صفحه ال هوم
+                            ScaffoldMessenger.of(context).showSnackBar( 
                               const SnackBar(
                                 content: Text('The item has been added to cart'),
                                 backgroundColor: Colors.green,
                               ),
                             );
                           },
-                          style: ElevatedButton.styleFrom( // لزرار ال لما ادوسه يضيف على العربه ويظهر الكلام الفوق
+                          style: ElevatedButton.styleFrom( 
                             backgroundColor: Colors.deepOrange,
                           ),
                           child: const Text('Add to cart'),
@@ -108,7 +108,7 @@ class FoodMenuScreen extends StatelessWidget {
                   ),
                 ),
               );
-            }).toList(), //تحويل النتائج إلى قائمة قابلة للاستخدام: للداله(map)
+            }).toList(), 
           ),
         ),
       ],
