@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 class Aboutus extends StatelessWidget {
 const Aboutus({super.key}) ;
-  // ignore: empty_constructor_bodies
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -9,10 +9,10 @@ const Aboutus({super.key}) ;
         body: Stack(
           fit: StackFit.expand,
           children: [
-            // الخلفية
-            Container(//ده ال فيها الخلفيه 
+            
+            Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [Color(0xFFFFA726), Color(0xFFFF7043)],begin: Alignment.topCenter,end: Alignment.bottomCenter,),//علشان نعمل خلفيه متدرجه
+                gradient: LinearGradient(colors: [Color(0xFFFFA726), Color(0xFFFF7043)],begin: Alignment.topCenter,end: Alignment.bottomCenter,),
               ),
             ),
             Column(
