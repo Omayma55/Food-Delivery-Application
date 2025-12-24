@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'food-list.dart';
 import 'cart_model.dart';  
-class FoodDetailScreen extends StatefulWidget { //لعرض التفاصيل الخاصة بكل عنصر من قائمة الطعام.
-  final FoodList item; // لتمرير البيانات من  قائمة الطعام
-  const FoodDetailScreen({super.key, required this.item}); //constructor
+class FoodDetailScreen extends StatefulWidget { 
+  final FoodList item; 
+  const FoodDetailScreen({super.key, required this.item}); 
   @override
-  _FoodDetailScreenState createState() => _FoodDetailScreenState(); // إنشاء حالة (state) الخاصة بـ FoodDetailScreen
+  _FoodDetailScreenState createState() => _FoodDetailScreenState(); 
 }
-class _FoodDetailScreenState extends State<FoodDetailScreen> { //بيورث نفسه
-  String selectedSize = 'Medium'; //لما افتح اى تفاصيل اكله بيشاور علطول على مديم
-  int quantity = 1; //ويكون العدد 1
+class _FoodDetailScreenState extends State<FoodDetailScreen> {
+  String selectedSize = 'Medium'; 
+  int quantity = 1; 
   List<String> sizes = ['Small', 'Medium', 'Large'];
-  Map<String, double> sizePrices = { //علشان احسب السعر
+  Map<String, double> sizePrices = { 
     'Small': 0.8,
     'Medium': 1.0,
     'Large': 1.3,
   };
   @override
   Widget build(BuildContext context) {
-    double basePrice = double.parse(widget.item.price.split(' ')[0]); //بيشوف السعر الثابت ال انا حطاه
-    double currentPrice = basePrice * sizePrices[selectedSize]!;//ويحسب على حسب الحجم
+    double basePrice = double.parse(widget.item.price.split(' ')[0]); 
+    double currentPrice = basePrice * sizePrices[selectedSize]!;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.item.name),
@@ -62,7 +62,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> { //بيورث نف
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: sizes.map((size) {
-                            return ChoiceChip(//زر صغير ممكن تختاره
+                            return ChoiceChip(
                               label: Text(size),
                               selected: selectedSize == size,
                               onSelected: (selected) {
@@ -90,7 +90,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> { //بيورث نف
                         Row(
                           children: [
                             Text("How Many?", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                            Spacer(), //مسافه بتفصل
+                            Spacer(), 
                             IconButton(
                               icon: Icon(Icons.remove_circle_outline),
                               onPressed: () {
@@ -140,7 +140,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> { //بيورث نف
                   ],
                 ),
                 Spacer(),
-                Expanded( //بيخلّي العنصر اللي جواه ياخد كل المساحة المتاحة ليه
+                Expanded( 
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepOrange,
@@ -148,7 +148,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> { //بيورث نف
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     ),
                     onPressed: () {
-                      // إضافة الطعام إلى العربة
+                      
                       double finalPrice = currentPrice * quantity;
                       CartModel.addItem({
                         "name": widget.item.name,
@@ -158,7 +158,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> { //بيورث نف
                         "description":widget.item.description,
                         "quantity": quantity,
                       });
-                      // التأكد من إضافة العنصر
+                      
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text('Added ${widget.item.name} To cart'),
