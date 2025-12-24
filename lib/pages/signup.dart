@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//نفس الكلام ال فى Login هنا
 class Signup extends StatelessWidget {
   Signup({super.key});
 
@@ -17,7 +16,7 @@ class Signup extends StatelessWidget {
         body: Stack(
           fit: StackFit.expand,
           children: [
-            // الخلفية
+            
             Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -51,7 +50,7 @@ class Signup extends StatelessWidget {
                         ),
                         const SizedBox(height: 80),
 
-                        // Username
+                        
                         _buildTextField(
                           icon: Icons.person,
                           hint: "Username :",
@@ -60,7 +59,7 @@ class Signup extends StatelessWidget {
                         ),
                         const SizedBox(height: 17),
 
-                        // Email
+                       
                         _buildTextField(
                           icon: Icons.email,
                           hint: "Your Email :",
@@ -69,7 +68,7 @@ class Signup extends StatelessWidget {
                         ),
                         const SizedBox(height: 17),
 
-                        // Password
+                  
                         _buildTextField(
                           icon: Icons.lock,
                           hint: "Password :",
@@ -80,7 +79,7 @@ class Signup extends StatelessWidget {
                         ),
                         const SizedBox(height: 17),
 
-                        // Address
+                       
                         _buildTextField(
                           icon: Icons.home,
                           hint: "Address :",
@@ -88,7 +87,7 @@ class Signup extends StatelessWidget {
                           validatorMsg: "Address is required",
                         ),
                         const SizedBox(height: 25),
-                        //phone number
+                       
                         _buildTextField(
                           icon: Icons.phone,
                           hint: "Phone Number :",
@@ -97,7 +96,7 @@ class Signup extends StatelessWidget {
                         ),
                         const SizedBox(height: 32),
 
-                        // Signup Button
+                       
                         ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
@@ -118,12 +117,12 @@ class Signup extends StatelessWidget {
                         ),
                         const SizedBox(height: 30),
 
-                        // عندك حساب؟
+                  
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text("Already have an account? ",style: TextStyle(color: Colors.white70, fontSize: 16),),
-                            GestureDetector(// بتخلي النص اللي جوه قابل للضغط كأنه زرار
+                            GestureDetector(
                               onTap: () {Navigator.pushNamed(context, "/login");},
                               child: const Text("Login",style: TextStyle( color: Colors.white, fontWeight: FontWeight.bold, decoration: TextDecoration.underline, fontSize: 16,),),),
                           ],
