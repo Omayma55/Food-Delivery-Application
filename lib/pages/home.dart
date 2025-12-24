@@ -1,4 +1,3 @@
-// دمج HomePage و FoodMenuScreen في كلاس واحد
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/food-list.dart';
 import 'cart_model.dart';
@@ -176,7 +175,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-// بيانات الأكل
+
 final pizzaItems = [
   FoodList(name: "Margherita Pizza", price: "200 EGP", image: "assets/images/foodiesfeed.com_pizza-fresh-out-of-oven-close-up.jpg", description: 'Pizza Dough , Tomato Sauce , Mozzarella Cheese , Fresh Basil , Olive Oil'),
   FoodList(name: "Pepperoni Pizza", price: "199 EGP", image: "assets/images/foodiesfeed.com_pizza-salami.jpg", description: 'Pizza Dough , Tomato Sauce , Mozzarella Cheese , Pepperoni Slices , Olive Oil'),
